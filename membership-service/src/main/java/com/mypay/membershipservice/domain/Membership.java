@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Membership {
 
-    private final String membershipId;
+    private final Long membershipId;
 
     private final String name;
 
