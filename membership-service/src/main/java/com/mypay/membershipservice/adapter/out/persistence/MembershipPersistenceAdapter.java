@@ -1,13 +1,16 @@
 package com.mypay.membershipservice.adapter.out.persistence;
 
+import com.mypay.membershipservice.application.port.out.FindMembershipPort;
 import com.mypay.membershipservice.application.port.out.RegisterMembershipPort;
 import com.mypay.membershipservice.domain.Membership;
 import common.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @PersistenceAdapter
 @RequiredArgsConstructor
-public class MembershipPersistenceAdapter implements RegisterMembershipPort {
+public class MembershipPersistenceAdapter implements RegisterMembershipPort, FindMembershipPort {
 
     private final SpringDataMembershipRepository membershipRepository;
 
@@ -20,5 +23,11 @@ public class MembershipPersistenceAdapter implements RegisterMembershipPort {
                 membership.getAddress(),
                 membership.isCorp(),
                 membership.isValid()));
+    }
+
+    @Override
+    public MembershipJpaEntity fineMembership(Long membershipId) {
+        Optional<MembershipJpaEntity> membershipJpa = membershipRepository.findById(membershipId);
+        return membershipJpa.orElse(null);
     }
 }

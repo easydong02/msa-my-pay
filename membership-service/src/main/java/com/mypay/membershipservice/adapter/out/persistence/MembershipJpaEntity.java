@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -42,7 +41,7 @@ public class MembershipJpaEntity {
                 '}';
     }
 
-    public MembershipJpaEntity(String name, String email, String address, boolean isValid, boolean isCorp) {
+    public MembershipJpaEntity(String name, String email, String address, boolean isCorp, boolean isValid) {
         this.name = name;
         this.email = email;
         this.address = address;
