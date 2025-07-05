@@ -1,6 +1,7 @@
 package com.mypay.membershipservice.adapter.out.persistence;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class MembershipJpaEntity {
 
     @Id
-    @Generated
+    @GeneratedValue
     private Long membershipId;
 
     private String name;
@@ -39,5 +40,13 @@ public class MembershipJpaEntity {
                 ", isValid=" + isValid +
                 ", isCorp=" + isCorp +
                 '}';
+    }
+
+    public MembershipJpaEntity(String name, String email, String address, boolean isValid, boolean isCorp) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.isValid = isValid;
+        this.isCorp = isCorp;
     }
 }
