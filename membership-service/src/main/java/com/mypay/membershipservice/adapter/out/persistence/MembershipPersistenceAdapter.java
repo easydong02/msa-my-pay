@@ -1,6 +1,7 @@
 package com.mypay.membershipservice.adapter.out.persistence;
 
 import com.mypay.membershipservice.application.port.out.FindMembershipPort;
+import com.mypay.membershipservice.application.port.out.ModifyMembershipPort;
 import com.mypay.membershipservice.application.port.out.RegisterMembershipPort;
 import com.mypay.membershipservice.domain.Membership;
 import common.PersistenceAdapter;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @PersistenceAdapter
 @RequiredArgsConstructor
-public class MembershipPersistenceAdapter implements RegisterMembershipPort, FindMembershipPort {
+public class MembershipPersistenceAdapter implements RegisterMembershipPort, FindMembershipPort, ModifyMembershipPort {
 
     private final SpringDataMembershipRepository membershipRepository;
 
@@ -29,5 +30,18 @@ public class MembershipPersistenceAdapter implements RegisterMembershipPort, Fin
     public MembershipJpaEntity fineMembership(Long membershipId) {
         Optional<MembershipJpaEntity> membershipJpa = membershipRepository.findById(membershipId);
         return membershipJpa.orElse(null);
+    }
+
+    @Override
+    public MembershipJpaEntity modifyMembership(Membership membership) {
+        MembershipJpaEntity membershipJpa = membershipRepository.getById(membership.getMembershipId());
+
+        membershipJpa.setName(membership.getName());
+        membershipJpa.setEmail(membership.getEmail());
+        membershipJpa.setAddress(membership.getAddress());
+        membershipJpa.setCorp(membership.isCorp());
+        membershipJpa.setValid(membership.isValid());
+        return membershipRepository.save(membershipJpa);
+
     }
 }
