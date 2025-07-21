@@ -1,9 +1,9 @@
 package com.mypay.membershipservice.adapter.in.web;
 
+import com.mypay.common.WebAdapter;
 import com.mypay.membershipservice.application.port.in.ModifyMembershipCommand;
 import com.mypay.membershipservice.application.port.in.ModifyMembershipUseCase;
 import com.mypay.membershipservice.domain.Membership;
-import common.WebAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,10 +1,10 @@
 package com.mypay.membershipservice.adapter.in.web;
 
 
+import com.mypay.common.WebAdapter;
 import com.mypay.membershipservice.application.port.in.FindMembershipCommand;
 import com.mypay.membershipservice.application.port.in.FindMembershipUseCase;
 import com.mypay.membershipservice.domain.Membership;
-import common.WebAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

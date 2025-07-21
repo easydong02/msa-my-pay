@@ -1,10 +1,10 @@
 package com.mypay.membershipservice.adapter.out.persistence;
 
+import com.mypay.common.PersistenceAdapter;
 import com.mypay.membershipservice.application.port.out.FindMembershipPort;
 import com.mypay.membershipservice.application.port.out.ModifyMembershipPort;
 import com.mypay.membershipservice.application.port.out.RegisterMembershipPort;
 import com.mypay.membershipservice.domain.Membership;
-import common.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
