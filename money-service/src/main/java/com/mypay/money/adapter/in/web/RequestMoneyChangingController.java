@@ -27,7 +27,12 @@ public class RequestMoneyChangingController {
 
         // MoneyChangingRequest -> MoneyChangingResultDetail
         MoneyChangingRequest moneyChangingRequest = increaseMoneyRequestUseCase.increaseMoneyRequest(command);
-        return null;
+        return new MoneyChangingResultDetail(
+                moneyChangingRequest.getMoneyChangingRequestId(),
+                0,
+                moneyChangingRequest.getChangingMoneyStatus(),
+                moneyChangingRequest.getChangingMoneyAmount()
+        );
     }
 
 

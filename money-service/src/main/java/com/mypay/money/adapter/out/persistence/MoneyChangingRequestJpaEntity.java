@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 @Entity
 @Table(name = "money_changing_request")
@@ -27,13 +28,16 @@ public class MoneyChangingRequestJpaEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp timestamp;
 
-    private String changingMoneyStatus;
+    private int changingMoneyStatus;
 
-    public MoneyChangingRequestJpaEntity(Long targetMembershipId, int moneyChangingType, int changingMoneyAmount, Timestamp timestamp, String changingMoneyStatus) {
+    private UUID uuid;
+
+    public MoneyChangingRequestJpaEntity(Long targetMembershipId, int moneyChangingType, int changingMoneyAmount, Timestamp timestamp, int changingMoneyStatus, UUID uuid) {
         this.targetMembershipId = targetMembershipId;
         this.moneyChangingType = moneyChangingType;
         this.changingMoneyAmount = changingMoneyAmount;
         this.timestamp = timestamp;
         this.changingMoneyStatus = changingMoneyStatus;
+        this.uuid = uuid;
     }
 }

@@ -8,7 +8,12 @@ public class MoneyChangingRequestMapper {
 
     public MoneyChangingRequest mapToDomain(MoneyChangingRequestJpaEntity moneyChangingRequestJpaEntity) {
         return MoneyChangingRequest.builder()
-                .moneyChangingRequestId(mo)
+                .moneyChangingRequestId(moneyChangingRequestJpaEntity.getMoneyChangingRequestId())
+                .targetMembershipId(moneyChangingRequestJpaEntity.getTargetMembershipId())
+                .moneyChangingType(moneyChangingRequestJpaEntity.getMoneyChangingType())
+                .changingMoneyAmount(moneyChangingRequestJpaEntity.getChangingMoneyAmount())
+                .changingMoneyStatus(moneyChangingRequestJpaEntity.getChangingMoneyStatus())
+                .uuid(moneyChangingRequestJpaEntity.getUuid())
                 .build();
     }
 }
