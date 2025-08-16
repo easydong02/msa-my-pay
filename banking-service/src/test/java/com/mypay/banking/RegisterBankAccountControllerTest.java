@@ -23,7 +23,7 @@ class RegisterBankAccountControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    void registerMembership() throws Exception {
+    void registerBankAccount() throws Exception {
         RegisterBankAccountRequest request = new RegisterBankAccountRequest(
                 1L, "my-bank", "1004-854-442901", true);
 
